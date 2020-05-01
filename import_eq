@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+  echo "Use an EQ file as argument"
+  exit
+fi
+
+FREQ_COL=($(awk '{print $6}' $1))
+GAIN_COL=($(awk '{print $9}' $1))
+Q_COL=($(awk '{print $12}' $1))
+
+for (( i=0; i<${#GAIN_COL[@]}; i++ ))
+do
+ echo "               \"band$i\": {
+                  \"type\": \"Bell\",
+                  \"mode\": \"RLC (BT)\",
+                  \"slope\": \"x1\",
+                  \"solo\": \"false\",
+                  \"mute\": \"false\",
+                  \"gain\": \"${GAIN_COL[$i]}\",
+                  \"frequency\": \"${FREQ_COL[$i]}\",
+                  \"q\": \"${Q_COL[$i]}\"
+                },"
+done

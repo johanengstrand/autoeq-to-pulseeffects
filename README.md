@@ -1,4 +1,6 @@
-# autoeq-to-pulseeffects <img src="https://img.shields.io/github/license/johanengstrand/autoeq-to-pulseeffects">
+# autoeq-to-pulseeffects 
+
+<img src="https://img.shields.io/github/license/johanengstrand/autoeq-to-pulseeffects">
 
 >  Convert headphone EQ settings from AutoEQ to json-formatted values for PulseEffects 
 
